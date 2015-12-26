@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="index">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.js"></script>
+	<script>
+		var app = angular.module('index',[]);
+		app.controller('main',function($scope,$http){
+			$scope.show=function(){
+				$http.get('a.txt',{}).success(function(str){
+					$scope.arr=str;
+				}).error();
+			};
+		});	
+	</script>
+</head>
+<body ng-controller="main">
+	<input type="button" value="按钮" ng-click="show()" />
+	<ul>
+		<li ng-repeat="item in arr">{{item}}</li>
+	</ul>
+</body>
+</html>

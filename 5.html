@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div{
+			widht:100px;
+			height:100px;
+			background:red;
+		}
+	</style>
+	<script src="angular.js"></script>
+	<script>
+	
+	</script>
+</head>
+<body ng-init="a=false">
+	<input type="button" value="按钮" ng-click="a=!a" />
+	<div class="div" ng-show="a"></div>
+</body>
+</html>

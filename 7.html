@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="index">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.js"></script>
+	<script>
+var app = angular.module('index',[]);
+app.controller('main',function($scope,$http){
+	//监控		$watch
+	$scope.$watch('searchTxt',function(){
+		$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{params:{"wd":$scope.searchTxt,"cb":"JSON_CALLBACK"}}).success(function(json){
+			alert(json.s);
+		}).error();
+	});
+	
+});
+</script>
+</head>
+
+<body ng-controller="main">
+<input type="text" ng-model="searchTxt"/>
+<ul>
+	<li ng-repeat="item in arr">{{item}}</li>
+</ul>
+</body>
+
+</html>
